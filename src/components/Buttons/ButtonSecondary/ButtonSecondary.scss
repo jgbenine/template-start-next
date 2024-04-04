@@ -1,0 +1,25 @@
+.buttonSecondary {
+  .buttonSecondary-button {
+    text-transform: uppercase;
+    @include font-body-02;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 250ms ease-in-out;
+    border: 1px solid $color-tertiary;
+    background-color: transparent;
+    color: $color-tertiary;
+    &:hover {
+      background-color: $color-tertiary;
+      color: $color-font-secondary;
+    }
+    @include res-md {
+      display: block;
+      text-align: center;
+      padding: 0.62rem 1rem;
+    }
+  }
+  .buttonSecondary-spinner {
+    width: 2rem;
+  }
+}

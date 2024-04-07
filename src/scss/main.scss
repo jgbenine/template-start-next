@@ -1,22 +1,13 @@
 
-/***
- *      _____ __  __ _____   ____  _____ _______ _____ 
- *     |_   _|  \/  |  __ \ / __ \|  __ \__   __/ ____|
- *       | | | \  / | |__) | |  | | |__) | | | | (___  
- *       | | | |\/| |  ___/| |  | |  _  /  | |  \___ \ 
- *      _| |_| |  | | |    | |__| | | \ \  | |  ____) |
- *     |_____|_|  |_|_|     \____/|_|  \_\ |_| |_____/ 
- *                                                                                                      
- */
+@import "./base/default.scss";
 
-// reset
-@import "./reset.scss";
+@import "./base/typography.scss";
 
-// fonts
-@import "./fonts.scss";
+@import "./utils/animations.scss";
 
-//animations
-@import "./animations.scss";
+@import "./utils/common.scss";
 
-//common
-@import "./common.scss";
+@import "./utils/colors.scss";
+
+@import "./base/responsive.scss";
+

@@ -1,0 +1,48 @@
+// !exemple : width: dynamic-calc(12, 24, 1366, 1920);
+// !original: width: calc(12px + (24 - 12) * ((100vw - 1366px) / (1920 - 1366)));
+//  ! VARIAVEIS DO PROJETO
+
+$maxResDesktop: 1920;
+$minResMobile: 992;
+@function unirPx($value) {
+  @return $value + "px";
+}
+@function dynamic-calc($startValue, $endValue, $minResolution, $maxResolution) {
+  $value1: unirPx(#{$startValue});
+  $value2: unirPx(#{$minResolution});
+  @return calc(
+    #{$value1} + (#{$endValue} - #{$startValue}) * ((100vw - #{$value2}) / (#{$maxResolution} - #{$minResolution}))
+  );
+}
+@function dCalc($startValue, $endValue) {
+  $value1: unirPx(#{$startValue});
+  @return calc(#{$value1} + (#{$endValue} - #{$startValue}) * ((100vw - 1280px) / (1920 - 1280)));
+}
+@function pCalc($startValue) {
+  $value1: unirPx(#{$startValue});
+  @return calc(#{$value1} + ((#{$startValue}/ 0.72) - #{$startValue}) * ((100vw - 1280px) / (1920 - 1280)));
+}
+
+@mixin mpCalc($prop, $startValue) {
+  $value2: pCalc($startValue);
+  #{$prop}: $value2;
+  @include res-md {
+      #{$prop}: calc(#{$startValue} * 1px);
+  }
+}
+@mixin mdCalc($prop, $startValue, $finalValue) {
+  $value2: dCalc($startValue, $finalValue);
+  #{$prop}: $value2;
+  @include res-md {
+      #{$prop}: calc(#{$startValue} * 1px);
+  }
+}
+@mixin mCalc($prop, $startValue, $mobileValue) {
+  $value1: unirPx($startValue);
+  $value2: pCalc($startValue);
+  #{$prop}: $value2;
+  @include res-md {
+      #{$prop}: calc(#{$mobileValue} * 1px);
+  }
+}
+

@@ -22,8 +22,6 @@ body {
   scroll-behavior: smooth;
 
   a {
-    color: $color-font-primary;
-
     &:active,
     &:focus {
       text-decoration: none;
